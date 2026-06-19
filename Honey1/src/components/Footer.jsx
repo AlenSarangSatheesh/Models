@@ -24,7 +24,7 @@ export default function Footer() {
         <div>
           <h4 style={{ marginBottom: '1rem' }}>Contact Us</h4>
           <p>Don't hesitate to contact us.</p>
-          <p style={{ marginTop: '0.5rem', fontWeight: 'bold' }}>+1 (234) 567-890</p>
+          <p style={{ marginTop: '0.5rem', fontWeight: 'bold' }}>+91 98765 43210</p>
           <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', fontWeight: 'bold' }}>
             <Link to="#">FB</Link>
             <Link to="#">TW</Link>

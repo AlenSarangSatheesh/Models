@@ -9,7 +9,7 @@ export default function Navbar() {
           <Clock size={16} color="var(--color-secondary)" /> 8:30 AM - 8:30 PM
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <Phone size={16} color="var(--color-secondary)" /> +1 234 567 890
+          <Phone size={16} color="var(--color-secondary)" /> +91 98765 43210
         </div>
       </div>
       <header style={{ backgroundColor: 'var(--color-white)', position: 'sticky', top: 0, zIndex: 1000, boxShadow: 'var(--shadow-sm)' }}>

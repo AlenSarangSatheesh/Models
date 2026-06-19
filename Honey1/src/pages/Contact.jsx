@@ -18,7 +18,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 style={{ margin: 0 }}>Phone</h4>
-                <p style={{ margin: 0, opacity: 0.8 }}>+1 (234) 567-890</p>
+                <p style={{ margin: 0, opacity: 0.8 }}>+91 98765 43210</p>
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -36,7 +36,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 style={{ margin: 0 }}>Location</h4>
-                <p style={{ margin: 0, opacity: 0.8 }}>123 Honeycomb Lane, Beeville, TX 78102</p>
+                <p style={{ margin: 0, opacity: 0.8 }}>45 MG Road, Indiranagar, Bengaluru, Karnataka 560038</p>
               </div>
             </div>
           </div>
