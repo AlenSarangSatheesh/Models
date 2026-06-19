@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Fix React Router basename mismatch when served from /dist/
+      if (window.location.pathname.includes('/dist/')) {
+        window.history.replaceState(null, "", "/Models/Honey1/");
+      }
+    </script>
+    <title>honey-website</title>
+    <script type="module" crossorigin src="./assets/index-VhQhjmje.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-qY8NCGBo.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
