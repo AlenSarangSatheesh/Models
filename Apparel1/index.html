@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Fashion Essentials</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Home Specific Styles */
+        .hero {
+            height: calc(100vh - 80px);
+            background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80');
+            background-size: cover;
+            background-position: center 30%;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        /* Split Banners */
+        .split-banners {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 600px;
+        }
+
+        .banner {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            transition: background 0.3s;
+        }
+
+        .banner:hover::before {
+            background: rgba(0,0,0,0.5);
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner h3 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">AURA</a>
+            <nav class="nav-links">
+                <a href="shop.html?cat=all" class="active">Shop</a>
+                <a href="shop.html?cat=women">Women</a>
+                <a href="shop.html?cat=men">Men</a>
+                <a href="#">Editorial</a>
+            </nav>
+            <div class="nav-icons">
+                <a href="shop.html">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+                <a href="cart.html" class="cart-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-count" style="display: none;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>The Spring Collection</h1>
+                    <p>Discover our new arrivals featuring minimalist silhouettes, sustainable fabrics, and timeless design. Elevate your everyday wardrobe.</p>
+                    <a href="shop.html" class="btn">Shop Collection</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Trending Now</h2>
+                    <p>Curated Essentials for the Season</p>
+                </div>
+                <div class="product-grid" id="trending-grid">
+                    <!-- Products injected by JS -->
+                </div>
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="shop.html" class="btn btn-outline">View All Products</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="split-banners">
+            <a href="shop.html?cat=women" class="banner" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1000&q=80');">
+                <div class="banner-content">
+                    <h3>Women's Edit</h3>
+                    <span class="btn btn-outline" style="border-color: white; color: white;">Shop Women</span>
+                </div>
+            </a>
+            <a href="shop.html?cat=men" class="banner" style="background-image: url('https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1000&q=80');">
+                <div class="banner-content">
+                    <h3>Men's Tailoring</h3>
+                    <span class="btn btn-outline" style="border-color: white; color: white;">Shop Men</span>
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 20px; display: inline-block;">AURA</a>
+                    <p style="color: var(--text-muted); line-height: 1.6; max-width: 300px;">Defining modern minimalism. Creating sustainable, high-quality garments for the contemporary wardrobe.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html?cat=women">Women's Collection</a></li>
+                        <li><a href="shop.html?cat=men">Men's Collection</a></li>
+                        <li><a href="shop.html?cat=accessories">Accessories</a></li>
+                        <li><a href="shop.html">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col newsletter">
+                    <h4>Newsletter</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <input type="email" placeholder="Enter your email address">
+                    <button class="btn" style="width: 100%;">Subscribe</button>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 AURA Fashion. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Render top 4 trending products on home page
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('trending-grid');
+            const topProducts = products.slice(0, 4);
+            
+            topProducts.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-image" onclick="window.location.href='product.html?id=${product.id}'">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="add-to-cart-overlay" onclick="event.stopPropagation(); addToCart('${product.id}')">
+                            Quick Add to Cart
+                        </div>
+                    </div>
+                    <div class="product-info" onclick="window.location.href='product.html?id=${product.id}'">
+                        <div class="product-brand">${product.brand}</div>
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-price">$${product.price.toFixed(2)}</div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        });
+    </script>
+</body>
+</html>

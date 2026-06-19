@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .shop-header {
+            padding: 80px 0 40px;
+            text-align: center;
+            background: var(--bg-offwhite);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 60px;
+        }
+
+        .shop-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .filter-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .filter-btn {
+            background: none;
+            border: none;
+            font-family: 'Jost', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding-bottom: 5px;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        #no-results {
+            text-align: center;
+            padding: 100px 0;
+            color: var(--text-muted);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">AURA</a>
+            <nav class="nav-links">
+                <a href="shop.html" class="active">Shop</a>
+                <a href="shop.html?cat=women">Women</a>
+                <a href="shop.html?cat=men">Men</a>
+                <a href="#">Editorial</a>
+            </nav>
+            <div class="nav-icons">
+                <a href="shop.html">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+                <a href="cart.html" class="cart-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-count" style="display: none;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="shop-header">
+            <div class="container">
+                <h1>The Collection</h1>
+                <p style="color: var(--text-muted);">Explore our complete range of meticulously crafted garments.</p>
+                <div class="filter-nav" id="filter-nav">
+                    <button class="filter-btn active" data-cat="all">All Items</button>
+                    <button class="filter-btn" data-cat="women">Women</button>
+                    <button class="filter-btn" data-cat="men">Men</button>
+                    <button class="filter-btn" data-cat="accessories">Accessories</button>
+                </div>
+            </div>
+        </div>
+
+        <section class="container" style="padding-bottom: 100px;">
+            <div class="product-grid" id="shop-grid">
+                <!-- Products injected by JS -->
+            </div>
+            <div id="no-results">
+                <h2>No products found in this category.</h2>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                &copy; 2026 AURA Fashion. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('shop-grid');
+            const noResults = document.getElementById('no-results');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            // Check URL for category
+            const urlParams = new URLSearchParams(window.location.search);
+            let currentCategory = urlParams.get('cat') || 'all';
+
+            function renderProducts(category) {
+                grid.innerHTML = '';
+                const filteredProducts = category === 'all' 
+                    ? products 
+                    : products.filter(p => p.category === category);
+
+                if (filteredProducts.length === 0) {
+                    grid.style.display = 'none';
+                    noResults.style.display = 'block';
+                } else {
+                    grid.style.display = 'grid';
+                    noResults.style.display = 'none';
+                    
+                    filteredProducts.forEach(product => {
+                        const card = document.createElement('div');
+                        card.className = 'product-card';
+                        card.innerHTML = `
+                            <div class="product-image" onclick="window.location.href='product.html?id=${product.id}'">
+                                <img src="${product.image}" alt="${product.name}">
+                                <div class="add-to-cart-overlay" onclick="event.stopPropagation(); addToCart('${product.id}')">
+                                    Quick Add to Cart
+                                </div>
+                            </div>
+                            <div class="product-info" onclick="window.location.href='product.html?id=${product.id}'">
+                                <div class="product-brand">${product.brand}</div>
+                                <h3 class="product-title">${product.name}</h3>
+                                <div class="product-price">$${product.price.toFixed(2)}</div>
+                            </div>
+                        `;
+                        grid.appendChild(card);
+                    });
+                }
+
+                // Update active button
+                filterBtns.forEach(btn => {
+                    if(btn.dataset.cat === category) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+
+            // Setup filter listeners
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const cat = e.target.dataset.cat;
+                    // Update URL without reloading
+                    window.history.pushState({}, '', `?cat=${cat}`);
+                    renderProducts(cat);
+                });
+            });
+
+            // Initial render
+            renderProducts(currentCategory);
+        });
+    </script>
+</body>
+</html>
