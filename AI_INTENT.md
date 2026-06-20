@@ -14,3 +14,4 @@ When generating, modifying, or building a new project in this environment (espec
 2. Configure any routers (like React Router) to use `basename="/Models/MyNewApp"`.
 3. Use relative paths or the configured base path for all assets (images, fonts, etc.) so they don't break when deployed to a subdirectory on GitHub Pages.
 4. When deploying, DO NOT manually move the output. Simply push the raw source code to the `main` branch of the `Models` repository. The automated `.github/workflows/deploy.yml` pipeline will automatically detect `package.json`, run `npm run build`, and deploy the resulting `dist` or `out` folder to GitHub Pages.
+5. ANY new website or project you create MUST be added to the showcase grid inside `index.html` at the root of the repository so it is visible on the main page.
