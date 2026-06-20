@@ -113,10 +113,10 @@ export default function LiquidTransition() {
   const { viewport } = useThree();
 
   const [tex1, tex2, tex3, tex4] = useTexture([
-    '/flower.png',
-    '/bee.png',
-    '/hive.png',
-    '/jar.png'
+    `${import.meta.env.BASE_URL}flower.png`,
+    `${import.meta.env.BASE_URL}bee.png`,
+    `${import.meta.env.BASE_URL}hive.png`,
+    `${import.meta.env.BASE_URL}jar.png`
   ]);
 
   const uniforms = useMemo(
