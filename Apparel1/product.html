@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product-detail-section {
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .product-gallery {
+            background: var(--bg-offwhite);
+            padding: 40px;
+        }
+
+        .product-gallery img {
+            width: 100%;
+            height: 700px;
+            object-fit: contain;
+        }
+
+        .product-info-panel h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .product-info-panel .price {
+            font-size: 1.5rem;
+            font-family: 'Jost', sans-serif;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .description {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .size-selector {
+            margin-bottom: 40px;
+        }
+
+        .size-selector label {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .size-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .size-btn {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--border-color);
+            background: white;
+            cursor: pointer;
+            font-family: 'Jost', sans-serif;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .size-btn:hover, .size-btn.active {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: white;
+        }
+
+        .add-cart-btn {
+            width: 100%;
+            padding: 20px;
+            font-size: 1rem;
+        }
+
+        .details-accordion {
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .accordion-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">AURA</a>
+            <nav class="nav-links">
+                <a href="shop.html">Shop</a>
+                <a href="shop.html?cat=women">Women</a>
+                <a href="shop.html?cat=men">Men</a>
+            </nav>
+            <div class="nav-icons">
+                <a href="cart.html" class="cart-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-count" style="display: none;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" id="product-container">
+            <!-- Injected by JS -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                &copy; 2026 AURA Fashion. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('product-container');
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id') || 'p1'; // Default to p1 if none
+
+            const product = products.find(p => p.id === productId);
+
+            if (!product) {
+                container.innerHTML = '<h2 style="padding: 100px 0; text-align: center;">Product not found.</h2>';
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="product-detail-section">
+                    <div class="product-gallery">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info-panel">
+                        <div class="product-brand" style="margin-bottom: 15px;">${product.brand}</div>
+                        <h1>${product.name}</h1>
+                        <div class="price">$${product.price.toFixed(2)}</div>
+                        
+                        <p class="description">Meticulously crafted from premium materials. This ${product.name.toLowerCase()} offers a minimalist silhouette designed for the modern wardrobe. Features tailored fits and exceptional attention to detail.</p>
+                        
+                        <div class="size-selector">
+                            <label>Select Size</label>
+                            <div class="size-btns">
+                                <button class="size-btn">S</button>
+                                <button class="size-btn active">M</button>
+                                <button class="size-btn">L</button>
+                                <button class="size-btn">XL</button>
+                            </div>
+                        </div>
+
+                        <button class="btn add-cart-btn" onclick="addToCart('${product.id}')">Add to Cart - $${product.price.toFixed(2)}</button>
+
+                        <div class="details-accordion">
+                            <div class="accordion-item">
+                                <span>Details & Care</span>
+                                <span>+</span>
+                            </div>
+                            <div class="accordion-item">
+                                <span>Shipping & Returns</span>
+                                <span>+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Setup size button interactivity
+            const sizeBtns = document.querySelectorAll('.size-btn');
+            sizeBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    sizeBtns.forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunset Villa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c2410c; /* Deep Sunset Orange */
+            --bg-light: #ffffff;
+            --text-dark: #292524;
+            --text-muted: #78716c;
+        }
+        body, html { margin: 0; padding: 0; font-family: 'Lato', sans-serif; color: var(--text-dark); background: var(--bg-light); font-weight: 300; }
+        h1, h2, h3, h4, .logo { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Centered Header */
+        header { padding: 40px 0; text-align: center; }
+        .logo { font-size: 2.5rem; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); }
+        nav { margin-top: 20px; display: flex; justify-content: center; gap: 40px; }
+        nav a { letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; border-bottom: 1px solid transparent; padding-bottom: 5px; transition: 0.3s; }
+        nav a:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* Floating Hero */
+        .hero-container { padding: 0 40px; margin-bottom: 100px; }
+        .hero { height: 70vh; background-image: url('hero.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .hero-box { background: rgba(255,255,255,0.9); padding: 60px; max-width: 500px; }
+        .hero h1 { font-size: 4rem; margin: 0 0 10px 0; font-style: italic; color: var(--primary); }
+        .hero p { font-size: 1.2rem; letter-spacing: 1px; margin: 0; }
+
+        /* Zig Zag Layout */
+        .section { padding: 80px 0; }
+        .zig-zag { display: flex; align-items: center; gap: 80px; margin-bottom: 120px; }
+        .zig-zag:nth-child(even) { flex-direction: row-reverse; }
+        .zz-img { flex: 1; }
+        .zz-img img { height: 600px; object-fit: cover; width: 100%; }
+        .zz-text { flex: 1; padding: 0 40px; }
+        .zz-text h2 { font-size: 3.5rem; margin: 0 0 20px 0; line-height: 1.1; }
+        .zz-text p { font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 30px; }
+        .btn-link { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; color: var(--primary); border-bottom: 1px solid var(--primary); padding-bottom: 5px; }
+        .btn-link:hover { color: var(--text-dark); border-color: var(--text-dark); }
+
+        /* Elegant Footer */
+        footer { border-top: 1px solid #e7e5e4; padding: 80px 0; text-align: center; }
+        .footer-logo { font-size: 2rem; color: var(--primary); margin-bottom: 20px; display: block; }
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; }
+        .footer-links a { letter-spacing: 1px; text-transform: uppercase; font-size: 0.8rem; }
+        .copyright { color: var(--text-muted); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Sunset Villa</div>
+        <nav>
+            <a href="#villas">Villas</a>
+            <a href="#dining">Dining</a>
+            <a href="#wellness">Wellness</a>
+        </nav>
+    </header>
+
+    <div class="hero-container">
+        <section class="hero">
+            <div class="hero-box">
+                <h1>Chasing Sunsets</h1>
+                <p>An elegant sanctuary for the soul.</p>
+            </div>
+        </section>
+    </div>
+
+    <section id="villas" class="section">
+        <div class="container">
+            <div class="zig-zag">
+                <div class="zz-img"><img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80" alt="Sunset Suite"></div>
+                <div class="zz-text">
+                    <h2>The Sunset Suite</h2>
+                    <p>A lavish suite featuring a private west-facing terrace. Bask in the warm, golden hour light that flows seamlessly through our open-architecture design.</p>
+                    <a href="#" class="btn-link">Reserve for $450/night</a>
+                </div>
+            </div>
+
+            <div class="zig-zag">
+                <div class="zz-img"><img src="https://images.unsplash.com/photo-1542314831-c6a4d14d8c53?w=800&q=80" alt="Grand Villa"></div>
+                <div class="zz-text">
+                    <h2>The Grand Villa</h2>
+                    <p>A sprawling private estate featuring private living quarters, a large sun deck, and personalized butler service. Designed for ultimate intimacy.</p>
+                    <a href="#" class="btn-link">Reserve for $800/night</a>
+                </div>
+            </div>
+
+            <div class="zig-zag">
+                <div class="zz-img"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80" alt="Wellness"></div>
+                <div class="zz-text">
+                    <h2 id="wellness">Evening Wellness</h2>
+                    <p>Enjoy sunset yoga sessions, thermal baths, and private spa treatments as you watch the sky paint its beautiful canvas each evening.</p>
+                    <a href="#" class="btn-link">Explore Wellness</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="#" class="footer-logo logo">Sunset Villa</a>
+            <div class="footer-links">
+                <a href="#">Contact</a>
+                <a href="#">Location</a>
+                <a href="#">Press</a>
+            </div>
+            <div class="copyright">&copy; 2026 Sunset Villa. All rights reserved.</div>
+        </div>
+    </footer>
+
+</body>
+</html>

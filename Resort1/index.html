@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Oasis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #d4af37; /* Metallic Gold */
+            --bg-dark: #121212;
+            --bg-darker: #0a0a0a;
+            --text-light: #ffffff;
+            --text-muted: #888888;
+        }
+        body, html { margin: 0; padding: 0; font-family: 'Space Grotesk', sans-serif; color: var(--text-light); background: var(--bg-dark); }
+        h1, h2, h3, .logo { font-family: 'Syncopate', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+        
+        /* Layout Structure */
+        .wrapper { display: flex; min-height: 100vh; }
+        
+        /* Vertical Navigation */
+        .sidebar { width: 300px; background: var(--bg-darker); position: fixed; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 60px 40px; box-sizing: border-box; border-right: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .sidebar-nav { display: flex; flex-direction: column; gap: 30px; }
+        .sidebar-nav a { font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); transition: 0.3s; position: relative; display: inline-block; width: fit-content; }
+        .sidebar-nav a:hover, .sidebar-nav a.active { color: white; }
+        .sidebar-nav a::after { content: ''; position: absolute; left: 0; bottom: -5px; width: 0; height: 1px; background: var(--primary); transition: 0.3s; }
+        .sidebar-nav a:hover::after { width: 100%; }
+        .book-btn { background: var(--primary); color: var(--bg-dark); padding: 15px; text-align: center; font-weight: 600; letter-spacing: 1px; transition: 0.3s; }
+        .book-btn:hover { background: white; }
+
+        /* Main Content Area */
+        .main-content { margin-left: 300px; flex: 1; }
+
+        /* Asymmetric Hero */
+        .hero { height: 100vh; display: flex; align-items: center; position: relative; padding: 0 80px; }
+        .hero-bg { position: absolute; top: 10vh; right: 40px; width: 60%; height: 80vh; background-image: url('hero.jpg'); background-size: cover; background-position: center; filter: grayscale(50%) contrast(1.2); z-index: 1; }
+        .hero-text { position: relative; z-index: 2; max-width: 600px; background: rgba(18,18,18,0.9); padding: 40px; border-left: 2px solid var(--primary); }
+        .hero h1 { font-size: 4rem; line-height: 1.1; margin: 0 0 20px 0; }
+        .hero p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+        /* Asymmetric Content Sections */
+        .section { padding: 120px 80px; }
+        .section-header { font-size: 2.5rem; margin-bottom: 60px; display: inline-block; border-bottom: 1px solid var(--text-muted); padding-bottom: 10px; }
+        
+        .asym-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; margin-bottom: 100px; align-items: center; }
+        .asym-grid:nth-child(even) { grid-template-columns: 1.5fr 1fr; }
+        .asym-grid.reverse .img-box { order: 2; }
+        .asym-grid.reverse .text-box { order: 1; }
+        
+        .img-box { position: relative; }
+        .img-box::before { content: ''; position: absolute; top: -20px; left: -20px; width: 100%; height: 100%; border: 1px solid var(--primary); z-index: 0; }
+        .img-box img { position: relative; z-index: 1; height: 600px; object-fit: cover; }
+        
+        .text-box h3 { font-size: 2rem; margin-bottom: 20px; color: var(--primary); }
+        .text-box p { font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 30px; }
+        .price-tag { display: inline-block; padding: 10px 20px; border: 1px solid var(--text-muted); font-size: 0.9rem; letter-spacing: 1px; }
+
+        /* Footer */
+        footer { padding: 80px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; }
+        .socials { display: flex; gap: 20px; }
+        .socials a { color: var(--text-muted); }
+        .socials a:hover { color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div>
+                <div class="logo" style="margin-bottom: 80px;">OASIS</div>
+                <nav class="sidebar-nav">
+                    <a href="#" class="active">The Vision</a>
+                    <a href="#residences">Residences</a>
+                    <a href="#lifestyle">Lifestyle</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+            <div>
+                <a href="#" class="book-btn">Reserve Now</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <section class="hero">
+                <div class="hero-bg"></div>
+                <div class="hero-text">
+                    <h1>Pure Elegance</h1>
+                    <p>Where unparalleled luxury meets architectural brilliance. Experience the pinnacle of exclusivity.</p>
+                </div>
+            </section>
+
+            <section id="residences" class="section">
+                <h2 class="section-header">Residences</h2>
+                
+                <div class="asym-grid">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80" alt="Oasis Room">
+                    </div>
+                    <div class="text-box">
+                        <h3>The Oasis Standard</h3>
+                        <p>An impeccably designed residence featuring bespoke furnishings, a marble bathroom, and automated smart controls integrated seamlessly into the modernist architecture.</p>
+                        <div class="price-tag">From $750 / Night</div>
+                    </div>
+                </div>
+
+                <div class="asym-grid reverse">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1542314831-c6a4d14d8c53?w=800&q=80" alt="Diplomat Suite">
+                    </div>
+                    <div class="text-box">
+                        <h3>Diplomat Suite</h3>
+                        <p>Our highly sought-after suite featuring separate formal living and dining areas. The striking geometric windows provide commanding views of the estate.</p>
+                        <div class="price-tag">From $1,400 / Night</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="lifestyle" class="section" style="background: var(--bg-darker);">
+                <h2 class="section-header">Lifestyle</h2>
+                
+                <div class="asym-grid">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80" alt="Experience">
+                    </div>
+                    <div class="text-box">
+                        <h3>A Masterpiece of Service</h3>
+                        <p>We cater to the most discerning guests who demand privacy, exceptional service, and absolute comfort. Enjoy private helipad access, Michelin-starred dining, and dedicated 24-hour butler service.</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="copyright">&copy; 2026 Luxury Oasis.</div>
+                <div class="socials">
+                    <a href="#">INSTAGRAM</a>
+                    <a href="#">TWITTER</a>
+                    <a href="#">LINKEDIN</a>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+</body>
+</html>

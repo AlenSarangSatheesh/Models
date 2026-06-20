@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snacks | Organic Nature Food</title>
+    <meta name="description" content="Fresh organic snacks, fruits, and juices delivered to your door.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" fill="#4a2f1d"/>
+                </svg>
+                <span>Cintel</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Fruits</a></li>
+                <li><a href="#">Bakery</a></li>
+                <li><a href="#">Juices</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a2f1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <button class="btn-primary">Contact</button>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-content">
+                <span class="subtitle">Sweet Treats & Fresh Picks</span>
+                <h1>Nature's<br>Perfect Snacks</h1>
+                <p>Discover our delicious assortment of organic fruits, fresh baked goods, and nutritious juices sourced directly from nature.</p>
+                <div class="hero-actions">
+                    <button class="btn-secondary">Shop Now</button>
+                    <span class="delivery-text">Delivered to your door</span>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="assets/images/hero_bowl.png" alt="Bowl of fresh berries" class="hero-image">
+                <img src="assets/images/product_tomatoes.png" alt="Floating fruit" class="floating-img float-1">
+            </div>
+        </div>
+
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z" fill="#fcc126"></path>
+            </svg>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Mini Categories Section -->
+        <section class="mini-categories">
+            <div class="card arrival-card">
+                <h2>New Arrivals</h2>
+                <div class="mini-grid">
+                    <div class="mini-item"><img src="assets/images/product_bread.png" alt="Bread"></div>
+                    <div class="mini-item"><img src="assets/images/juice_bottles.png" alt="Juice"></div>
+                    <div class="mini-item"><img src="assets/images/product_tomatoes.png" alt="Fruits"></div>
+                </div>
+            </div>
+            <div class="card feature-card">
+                <img src="assets/images/product_walnuts.png" alt="Walnuts" class="feature-img">
+                <div class="feature-info">
+                    <h2>Organic Nuts</h2>
+                    <p>Premium quality walnuts, almonds and mixed nuts carefully selected for your daily nutrition needs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Grid Section -->
+        <section class="products">
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="assets/images/product_tomatoes.png" alt="Fresh Fruits">
+                </div>
+                <h3>Fresh Fruits</h3>
+                <div class="product-meta">
+                    <span class="price">$12.40</span>
+                    <button class="btn-primary btn-small">Add to cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="assets/images/product_walnuts.png" alt="Organic Walnuts">
+                </div>
+                <h3>Organic Walnuts</h3>
+                <div class="product-meta">
+                    <span class="price">$3.20</span>
+                    <button class="btn-primary btn-small">Add to cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="assets/images/product_bread.png" alt="Artisan Bread">
+                </div>
+                <h3>Artisan Bread</h3>
+                <div class="product-meta">
+                    <span class="price">$4.50</span>
+                    <button class="btn-primary btn-small">Add to cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Callout Banner -->
+        <section class="callout-banner">
+            <div class="callout-img-wrapper">
+                <img src="assets/images/product_walnuts.png" alt="Nuts bowl">
+            </div>
+            <div class="callout-content">
+                <h2>Quality Ingredients</h2>
+                <p>We source only the best organic ingredients from local farms to ensure maximum freshness and taste in every bite.</p>
+            </div>
+            <div class="callout-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#a45a30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Details & Juices Section -->
+        <section class="details-section">
+            <div class="card details-card">
+                <h2>Nutrition Facts</h2>
+                <ul class="nutrition-list">
+                    <li><span class="icon">✓</span> 100% Organic ingredients</li>
+                    <li><span class="icon">✓</span> No added preservatives</li>
+                    <li><span class="icon">✓</span> Rich in vitamins</li>
+                </ul>
+                <div class="product-meta mt-auto">
+                    <span class="price">$8.99</span>
+                    <button class="btn-primary btn-small">Learn more</button>
+                </div>
+            </div>
+            <div class="card juice-card">
+                <div class="juice-info">
+                    <span>Fresh Pressed</span>
+                    <h2>Cold Juices</h2>
+                    <button class="btn-secondary btn-small mt-2">View all</button>
+                </div>
+                <img src="assets/images/juice_bottles.png" alt="Juice bottles" class="juice-img">
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-wave">
+             <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z" fill="#fcc126"></path>
+            </svg>
+        </div>
+        <div class="footer-content">
+            <img src="assets/images/bottom_bread.png" alt="Fresh bread" class="footer-img">
+            <div class="footer-text">
+                <h2>Fresh Bakery</h2>
+                <p>Baked daily with love.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
